@@ -50,7 +50,6 @@ services:
       - ./zconf:/opt/zeppelin-0.9.0-preview1-bin-all/conf
     environment:
       - "ZEPPELIN_ADDR=172.29.0.6"
-      - "ZEPPELIN_PORT=8087"
     networks:
       iwordnet:
         ipv4_address: 172.29.0.6
