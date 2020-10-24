@@ -1,1 +1,1 @@
-import cassandra_driver
+import cassandra
