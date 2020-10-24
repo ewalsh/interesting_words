@@ -18,7 +18,7 @@
           "description": "Max number of SCollection results to display."
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "beam",
@@ -83,7 +83,7 @@
           "description": "Ignite JDBC connection URL."
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "ignite",
@@ -138,7 +138,7 @@
           "description": "Max number of OQL result to display."
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "oql",
@@ -273,7 +273,7 @@
           "description": "Maximum number of rows fetched from the query."
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "sql",
@@ -344,7 +344,7 @@
           "description": "Hadoop cluster username"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "lens",
@@ -402,7 +402,7 @@
           "description": "max row number for %pig.query"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "script",
@@ -438,7 +438,7 @@
       "name": "java",
       "group": "java",
       "properties": {},
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "java",
@@ -465,7 +465,7 @@
       "name": "jupyter",
       "group": "jupyter",
       "properties": {},
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "jupyter",
@@ -513,7 +513,7 @@
           "description": "Maximum number of lines of results fetched"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "hdfs",
@@ -583,7 +583,7 @@
           "description": "Password for a basic authentication"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "elasticsearch",
@@ -833,7 +833,7 @@
           "description": "Shell command time out in millisecs. Default \u003d 60000"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "submarine",
@@ -1085,7 +1085,7 @@
           "description": "Show short types instead of full, e.g. List\u003cString\u003e or kotlin.collections.List\u003ckotlin.String\u003e"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "spark",
@@ -1230,7 +1230,7 @@
           "description": "Enable ZeppelinContext variable interpolation into paragraph text"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "sh",
@@ -1278,7 +1278,7 @@
           "description": "Markdown Parser Type. Available values: pegdown, markdown4j, flexmark. Default \u003d flexmark"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "md",
@@ -1306,7 +1306,7 @@
       "name": "hazelcastjet",
       "group": "hazelcastjet",
       "properties": {},
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "hazelcastjet",
@@ -1346,7 +1346,7 @@
           "description": "Alluxio master port"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "alluxio",
@@ -1398,7 +1398,7 @@
           "description": "BigQuery SQL dialect (standardSQL or legacySQL). If empty, query prefix like \u0027#standardSQL\u0027 can be used."
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "sql",
@@ -1487,7 +1487,7 @@
           "description": "Max count of scheduler concurrency"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "mongodb",
@@ -1534,7 +1534,7 @@
           "description": "Disable checks for unit and manual tests"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "hbase",
@@ -1592,7 +1592,7 @@
           "description": "grpc message size, default is 32M"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "python",
@@ -1711,7 +1711,7 @@
           "description": "Number of concurrent execution"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "universe",
@@ -1752,7 +1752,7 @@
           "description": "Show short types instead of full, e.g. List\u003cString\u003e or kotlin.collections.List\u003ckotlin.String\u003e"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "kotlin",
@@ -1792,7 +1792,7 @@
           "description": "Maximum number of open interpreter instances"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "scalding",
@@ -1972,7 +1972,7 @@
           "description": "Max concurrent sql of Stream Sql"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "flink",
@@ -2041,7 +2041,7 @@
       "name": "angular",
       "group": "angular",
       "properties": {},
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "angular",
@@ -2084,7 +2084,7 @@
           "description": "KSQL Endpoint base URL"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "ksql",
@@ -2245,7 +2245,7 @@
           "description": "Execute multiple SQL concurrently if set true."
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "spark",
@@ -2362,7 +2362,7 @@
           "description": "Height of iframe of R shiny app"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "r",
@@ -2417,7 +2417,7 @@
           "description": "The path for custom groovy classes location. If empty `./interpreter/groovy/classes`"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "groovy",
@@ -2475,7 +2475,7 @@
           "description": "Max concurrency call from Zeppelin to Neo4j server."
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "neo4j",
@@ -2706,7 +2706,7 @@
           "description": "Cassandra truststore password. Default \u003d none"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "cassandra",
@@ -2759,7 +2759,7 @@
           "description": "Remove the datatypes from Literals so Zeppelin can use the values. Default: true"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "sparql",
@@ -2830,7 +2830,7 @@
           "description": "Kylin query partial flag, deprecated"
         }
       },
-      "status": "DOWNLOADING_DEPENDENCIES",
+      "status": "READY",
       "interpreterGroup": [
         {
           "name": "kylin",
