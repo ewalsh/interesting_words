@@ -48,6 +48,7 @@ services:
       - ./logs:/opt/zeppelin-0.9.0-preview1-bin-all/logs
       - ./notebook:/opt/zeppelin-0.9.0-preview1-bin-all/notebook
       - ./zconf:/opt/zeppelin-0.9.0-preview1-bin-all/conf
+      - ./Presidential_Speeches:/opt/zeppelin-0.9.0-preview1-bin-all/Presidential_Speeches
     environment:
       - "ZEPPELIN_ADDR=172.29.0.6"
     networks:
