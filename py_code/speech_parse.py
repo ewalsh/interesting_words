@@ -10,13 +10,14 @@ def date_check(dt_txt):
         parsed_dt = pendulum.parse(dt_txt, strict=False)
         return(parsed_dt)
 
+
 # define text parser for presidential speeches
-def parse_ps(filename, name, doc_num):
+def parse_ps(filename, name, doc_num, io_boo=True):
     with open(filename, 'r', encoding='ISO-8859-1') as fobj:
         raw_title = fobj.readline()
-        parsed_title = raw_title.strip().replace('<title=','').replace('>','').replace('"','').replace("'","''")
+        parsed_title = raw_title.strip().replace('<title=', '').replace('>', '').replace('"', '').replace("'","''")
         raw_date = fobj.readline()
-        parsed_date_txt = raw_date.strip().replace('<date=','').replace('>','').replace('"','')
+        parsed_date_txt = raw_date.strip().replace('<date=', '').replace('>', '').replace('"', '')
         parsed_date = date_check(parsed_date_txt)
         counter = 0
         line0 = fobj.readline()
@@ -26,10 +27,10 @@ def parse_ps(filename, name, doc_num):
             stmt = ''
             if (line1 != '') & (line1.strip() != ''):
                 if parsed_date == None:
-                    stmt = """INSERT INTO iwords.raw (filename, doc_num, line_num, pres, text, speech_title) VALUES ('{}', {}, {}, '{}', '{}', '{}');""".format(filename, doc_num, counter, name, line1, parsed_title)
+                    stmt = """INSERT INTO iwords.raw (filename, doc_num, line_num, pres, text, speech_title, in_office) VALUES ('{}', {}, {}, '{}', '{}', '{}', {});""".format(filename, doc_num, counter, name, line1, parsed_title, io_boo)
                 else:
-                    stmt = """INSERT INTO iwords.raw (filename, doc_num, line_num, pres, text, speech_title, speech_dt) VALUES ('{}', {}, {}, '{}', '{}', '{}', '{}');""".format(filename, doc_num, counter, name, line1, parsed_title, parsed_date)
-                print(stmt)
+                    stmt = """INSERT INTO iwords.raw (filename, doc_num, line_num, pres, text, speech_title, speech_dt, in_office) VALUES ('{}', {}, {}, '{}', '{}', '{}', '{}', {});""".format(filename, doc_num, counter, name, line1, parsed_title, parsed_date, io_boo)
+                #print(stmt)
                 session.execute(stmt)
             counter = counter + 1
             line1 = fobj.readline()
