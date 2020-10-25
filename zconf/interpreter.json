@@ -18,7 +18,7 @@
           "description": "Max number of SCollection results to display."
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "beam",
@@ -83,7 +83,7 @@
           "description": "Ignite JDBC connection URL."
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "ignite",
@@ -138,7 +138,7 @@
           "description": "Max number of OQL result to display."
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "oql",
@@ -273,7 +273,7 @@
           "description": "Maximum number of rows fetched from the query."
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "sql",
@@ -344,7 +344,7 @@
           "description": "Hadoop cluster username"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "lens",
@@ -402,7 +402,7 @@
           "description": "max row number for %pig.query"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "script",
@@ -438,7 +438,7 @@
       "name": "java",
       "group": "java",
       "properties": {},
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "java",
@@ -465,7 +465,7 @@
       "name": "jupyter",
       "group": "jupyter",
       "properties": {},
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "jupyter",
@@ -513,7 +513,7 @@
           "description": "Maximum number of lines of results fetched"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "hdfs",
@@ -583,7 +583,7 @@
           "description": "Password for a basic authentication"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "elasticsearch",
@@ -833,7 +833,7 @@
           "description": "Shell command time out in millisecs. Default \u003d 60000"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "submarine",
@@ -1085,7 +1085,7 @@
           "description": "Show short types instead of full, e.g. List\u003cString\u003e or kotlin.collections.List\u003ckotlin.String\u003e"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "spark",
@@ -1230,7 +1230,7 @@
           "description": "Enable ZeppelinContext variable interpolation into paragraph text"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "sh",
@@ -1278,7 +1278,7 @@
           "description": "Markdown Parser Type. Available values: pegdown, markdown4j, flexmark. Default \u003d flexmark"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "md",
@@ -1306,7 +1306,7 @@
       "name": "hazelcastjet",
       "group": "hazelcastjet",
       "properties": {},
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "hazelcastjet",
@@ -1398,7 +1398,7 @@
           "description": "BigQuery SQL dialect (standardSQL or legacySQL). If empty, query prefix like \u0027#standardSQL\u0027 can be used."
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "sql",
