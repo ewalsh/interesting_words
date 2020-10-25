@@ -17,15 +17,6 @@ services:
    networks:
      iwordnet:
        ipv4_address: 172.29.0.2
-  kibana:
-    image: kibana:6.8.12
-    environment:
-      - "ELASTICSEARCH_URL=http://172.29.0.2:9200"
-    ports:
-      - "5601:5601"
-    networks:
-      iwordnet:
-        ipv4_address: 172.29.0.100
   spark:
     image: ewalsh200/toyspark
     volumes:

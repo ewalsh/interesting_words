@@ -66,9 +66,9 @@
       "status": "READY"
     },
     {
-      "text": "%python\nimport numpy\nimport pendulum\nfrom cassandra.cluster import Cluster\nimport os",
+      "text": "%python\nimport numpy as np\nimport pandas as pd\nimport pendulum\nfrom cassandra.cluster import Cluster\nimport os\nimport nltk",
       "user": "anonymous",
-      "dateUpdated": "2020-10-25 09:14:48.393",
+      "dateUpdated": "2020-10-25 11:38:10.049",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -94,14 +94,52 @@
       "jobName": "paragraph_1603557855378_1943615445",
       "id": "paragraph_1603557855378_1943615445",
       "dateCreated": "2020-10-24 16:44:15.378",
-      "dateStarted": "2020-10-25 09:14:48.454",
-      "dateFinished": "2020-10-25 09:14:55.961",
+      "dateStarted": "2020-10-25 11:38:10.054",
+      "dateFinished": "2020-10-25 11:38:16.387",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%python\nnltk.download(\"punkt\")\nnltk.download(\"maxent_ne_chunker\")\nnltk.download(\"universal_tagset\")\nnltk.download(\"stopwords\")\nnltk.download(\u0027averaged_perceptron_tagger\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 12:28:12.034",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[nltk_data] Downloading package punkt to /home/hduser/nltk_data...\n[nltk_data]   Package punkt is already up-to-date!\n[nltk_data] Downloading package maxent_ne_chunker to\n[nltk_data]     /home/hduser/nltk_data...\n[nltk_data]   Package maxent_ne_chunker is already up-to-date!\n[nltk_data] Downloading package universal_tagset to\n[nltk_data]     /home/hduser/nltk_data...\n[nltk_data]   Package universal_tagset is already up-to-date!\n[nltk_data] Downloading package stopwords to /home/hduser/nltk_data...\n[nltk_data]   Package stopwords is already up-to-date!\n[nltk_data] Downloading package averaged_perceptron_tagger to\n[nltk_data]     /home/hduser/nltk_data...\n[nltk_data]   Unzipping taggers/averaged_perceptron_tagger.zip.\nTrue"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603626538395_1822661891",
+      "id": "paragraph_1603626538395_1822661891",
+      "dateCreated": "2020-10-25 11:48:58.395",
+      "dateStarted": "2020-10-25 12:28:12.037",
+      "dateFinished": "2020-10-25 12:28:12.996",
       "status": "FINISHED"
     },
     {
       "text": "%python\n# define cassandra connection function\ndef create_session(host, port, db \u003d \u0027\u0027):\n    cluster \u003d Cluster([host],port\u003dport)\n    session \u003d cluster.connect(db,wait_for_all_pools\u003dTrue)\n    return(session)",
       "user": "anonymous",
-      "dateUpdated": "2020-10-25 09:14:58.034",
+      "dateUpdated": "2020-10-25 10:19:20.467",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -127,8 +165,8 @@
       "jobName": "paragraph_1603527593002_-1627620149",
       "id": "paragraph_1603527593002_-1627620149",
       "dateCreated": "2020-10-24 08:19:53.002",
-      "dateStarted": "2020-10-25 09:14:58.042",
-      "dateFinished": "2020-10-25 09:14:58.106",
+      "dateStarted": "2020-10-25 10:19:20.489",
+      "dateFinished": "2020-10-25 10:19:20.555",
       "status": "FINISHED"
     },
     {
@@ -161,7 +199,7 @@
     {
       "text": "%cassandra\nCREATE KEYSPACE IF NOT EXISTS iwords WITH replication \u003d {\u0027class\u0027: \u0027NetworkTopologyStrategy\u0027, \u0027DC1\u0027: \u00271\u0027}  AND durable_writes \u003d true;",
       "user": "anonymous",
-      "dateUpdated": "2020-10-25 09:15:05.556",
+      "dateUpdated": "2020-10-25 10:19:24.860",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -192,14 +230,14 @@
       "jobName": "paragraph_1603556159633_1150059241",
       "id": "paragraph_1603556159633_1150059241",
       "dateCreated": "2020-10-24 16:15:59.633",
-      "dateStarted": "2020-10-25 09:15:05.629",
-      "dateFinished": "2020-10-25 09:15:15.091",
+      "dateStarted": "2020-10-25 10:19:24.869",
+      "dateFinished": "2020-10-25 10:19:30.506",
       "status": "FINISHED"
     },
     {
-      "text": "%cassandra\nCREATE TABLE IF NOT EXISTS iwords.raw (filename text, pres text, speech_title text, speech_dt timestamp, doc_num int, line_num int, text text, PRIMARY KEY (filename, line_num));\nCREATE CUSTOM INDEX IF NOT EXISTS elastic_raw_idx ON iwords.raw () USING \u0027org.elassandra.index.ExtendedElasticSecondaryIndex\u0027;",
+      "text": "%cassandra\nCREATE TABLE IF NOT EXISTS iwords.raw (filename text, pres text, speech_title text, speech_dt timestamp, doc_num int, line_num int, text text, PRIMARY KEY (filename, line_num));",
       "user": "anonymous",
-      "dateUpdated": "2020-10-25 09:15:21.458",
+      "dateUpdated": "2020-10-25 10:19:36.008",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -221,7 +259,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\n\n\u003cdiv class\u003d\"container\"\u003e\n\u003cdiv class\u003d\"row text-center\"\u003e\n\u003ch4\u003eNo Result\u003c/h4\u003e\n\u003c/div\u003e\n\u003cbr/\u003e\n    \u003cdiv class\u003d\"row\"\u003e\n    \u003cdiv class\u003d\"col-md-3\"\u003e\u003c/div\u003e\n    \u003cdiv class\u003d\"col-md-6 col-offset-md-3 table-responsive table-bordered\"\u003e\n        \u003ctable class\u003d\"table\"\u003e\n            \u003ccaption\u003e\u003ch5\u003eLast query execution info\u003c/h5\u003e\u003c/caption\u003e\n            \u003cthead\u003e\n                \u003ctr\u003e\n                    \u003cth\u003eInfo\u003c/th\u003e\n                    \u003cth\u003eValue\u003c/th\u003e\n                \u003c/tr\u003e\n            \u003c/thead\u003e\n            \u003ctbody\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eStatement\u003c/td\u003e\n                    \u003ctd\u003eCREATE CUSTOM INDEX IF NOT EXISTS elastic_raw_idx ON iwords.raw () USING \u0027org.elassandra.index.ExtendedElasticSecondaryIndex\u0027;\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eAchieved Consistency\u003c/td\u003e\n                    \u003ctd\u003eN/A\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eTried Hosts\u003c/td\u003e\n                    \u003ctd\u003e172.29.0.2:9042\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eQueried Hosts\u003c/td\u003e\n                    \u003ctd\u003e172.29.0.2:9042\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eSchema In Agreement\u003c/td\u003e\n                    \u003ctd\u003etrue\u003c/td\u003e\n                \u003c/tr\u003e\n            \u003c/tbody\u003e\n        \u003c/table\u003e\n    \u003c/div\u003e\n    \u003c/div\u003e\n\u003c/div\u003e"
+            "data": "\n\n\u003cdiv class\u003d\"container\"\u003e\n\u003cdiv class\u003d\"row text-center\"\u003e\n\u003ch4\u003eNo Result\u003c/h4\u003e\n\u003c/div\u003e\n\u003cbr/\u003e\n    \u003cdiv class\u003d\"row\"\u003e\n    \u003cdiv class\u003d\"col-md-3\"\u003e\u003c/div\u003e\n    \u003cdiv class\u003d\"col-md-6 col-offset-md-3 table-responsive table-bordered\"\u003e\n        \u003ctable class\u003d\"table\"\u003e\n            \u003ccaption\u003e\u003ch5\u003eLast query execution info\u003c/h5\u003e\u003c/caption\u003e\n            \u003cthead\u003e\n                \u003ctr\u003e\n                    \u003cth\u003eInfo\u003c/th\u003e\n                    \u003cth\u003eValue\u003c/th\u003e\n                \u003c/tr\u003e\n            \u003c/thead\u003e\n            \u003ctbody\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eStatement\u003c/td\u003e\n                    \u003ctd\u003eCREATE TABLE IF NOT EXISTS iwords.raw (filename text, pres text, speech_title text, speech_dt timestamp, doc_num int, line_num int, text text, PRIMARY KEY (filename, line_num));\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eAchieved Consistency\u003c/td\u003e\n                    \u003ctd\u003eN/A\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eTried Hosts\u003c/td\u003e\n                    \u003ctd\u003e172.29.0.2:9042\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eQueried Hosts\u003c/td\u003e\n                    \u003ctd\u003e172.29.0.2:9042\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eSchema In Agreement\u003c/td\u003e\n                    \u003ctd\u003etrue\u003c/td\u003e\n                \u003c/tr\u003e\n            \u003c/tbody\u003e\n        \u003c/table\u003e\n    \u003c/div\u003e\n    \u003c/div\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -230,14 +268,56 @@
       "jobName": "paragraph_1603556707918_124524284",
       "id": "paragraph_1603556707918_124524284",
       "dateCreated": "2020-10-24 16:25:07.918",
-      "dateStarted": "2020-10-25 09:15:21.472",
-      "dateFinished": "2020-10-25 09:15:21.530",
+      "dateStarted": "2020-10-25 10:19:36.017",
+      "dateFinished": "2020-10-25 10:19:36.373",
       "status": "FINISHED"
+    },
+    {
+      "text": "%sh\ncurl -XPUT -H \u0027Content-Type: application/json\u0027 http://172.29.0.2:9200/iwords -d\u0027{\"mappings\":{\"raw\":{\"discover\":\".*\"}}}\u0027 {\"acknowledged\":true, \"shards_acknowledged\":true,\"index\":\"raw\"}",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 10:19:59.351",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100    38    0     0  100    38      0    190 --:--:-- --:--:-- --:--:--   189\r100    38    0     0  100    38      0     31  0:00:01  0:00:01 --:--:--    31\r100   103  100    65  100    38     34     20  0{:\"0a0c:k0n1o w l0e:d0ged\"0::t0r1u e-,\"-s:h-a-r:d-s-_ a c k n5o4w\nlceudrgle:d \"(:3t)r u[eg,l\"oibnbdienxg\"]: \"uinwmoartdcsh\"e}d brace in column 1\ncurl: (3) [globbing] unmatched close brace/bracket in column 35\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "ExitValue: 3"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603619562098_1891697549",
+      "id": "paragraph_1603619562098_1891697549",
+      "dateCreated": "2020-10-25 09:52:42.099",
+      "dateStarted": "2020-10-25 10:19:59.360",
+      "dateFinished": "2020-10-25 10:20:02.412",
+      "status": "ERROR"
     },
     {
       "text": "%python\nsession \u003d create_session(\u0027172.29.0.2\u0027, 9042, \u0027iwords\u0027)",
       "user": "anonymous",
-      "dateUpdated": "2020-10-25 09:15:51.562",
+      "dateUpdated": "2020-10-25 10:20:57.031",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -263,14 +343,14 @@
       "jobName": "paragraph_1603560125260_-356628728",
       "id": "paragraph_1603560125260_-356628728",
       "dateCreated": "2020-10-24 17:22:05.261",
-      "dateStarted": "2020-10-25 09:15:51.573",
-      "dateFinished": "2020-10-25 09:15:51.950",
+      "dateStarted": "2020-10-25 10:20:57.043",
+      "dateFinished": "2020-10-25 10:20:57.403",
       "status": "FINISHED"
     },
     {
       "text": "%python\ndef date_check(dt_txt):\n    if dt_txt \u003d\u003d \u0027\u0027:\n        return(None)\n    else:\n        parsed_dt \u003d pendulum.parse(dt_txt, strict\u003dFalse)\n        return(parsed_dt)\n\n# define text parser for presidential speeches\ndef parse_ps(filename, name, doc_num):\n    with open(filename, \u0027r\u0027, encoding\u003d\u0027ISO-8859-1\u0027) as fobj:\n        raw_title \u003d fobj.readline()\n        parsed_title \u003d raw_title.strip().replace(\u0027\u003ctitle\u003d\u0027,\u0027\u0027).replace(\u0027\u003e\u0027,\u0027\u0027).replace(\u0027\"\u0027,\u0027\u0027).replace(\"\u0027\",\"\u0027\u0027\")\n        raw_date \u003d fobj.readline()\n        parsed_date_txt \u003d raw_date.strip().replace(\u0027\u003cdate\u003d\u0027,\u0027\u0027).replace(\u0027\u003e\u0027,\u0027\u0027).replace(\u0027\"\u0027,\u0027\u0027)\n        parsed_date \u003d date_check(parsed_date_txt)\n        counter \u003d 0\n        line0 \u003d fobj.readline()\n        while line0:\n            line0 \u003d fobj.readline()\n            line1 \u003d line0.replace(\"\u0027\",\"\u0027\u0027\")\n            stmt \u003d \u0027\u0027\n            if (line1 !\u003d \u0027\u0027) \u0026 (line1.strip() !\u003d \u0027\u0027):\n                if parsed_date \u003d\u003d None:\n                    stmt \u003d \"\"\"INSERT INTO iwords.raw (filename, doc_num, line_num, pres, text, speech_title) VALUES (\u0027{}\u0027, {}, {}, \u0027{}\u0027, \u0027{}\u0027, \u0027{}\u0027);\"\"\".format(filename, doc_num, counter, name, line1, parsed_title)\n                else:\n                    stmt \u003d \"\"\"INSERT INTO iwords.raw (filename, doc_num, line_num, pres, text, speech_title, speech_dt) VALUES (\u0027{}\u0027, {}, {}, \u0027{}\u0027, \u0027{}\u0027, \u0027{}\u0027, \u0027{}\u0027);\"\"\".format(filename, doc_num, counter, name, line1, parsed_title, parsed_date)\n                #print(stmt)\n                session.execute(stmt)\n            counter \u003d counter + 1\n            line1 \u003d fobj.readline()\n\n            ",
       "user": "anonymous",
-      "dateUpdated": "2020-10-25 09:16:22.029",
+      "dateUpdated": "2020-10-25 10:20:59.690",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -296,14 +376,14 @@
       "jobName": "paragraph_1603560162014_96441961",
       "id": "paragraph_1603560162014_96441961",
       "dateCreated": "2020-10-24 17:22:42.014",
-      "dateStarted": "2020-10-25 09:16:22.034",
-      "dateFinished": "2020-10-25 09:16:22.093",
+      "dateStarted": "2020-10-25 10:20:59.697",
+      "dateFinished": "2020-10-25 10:20:59.757",
       "status": "FINISHED"
     },
     {
       "text": "%python\nfolder_root \u003d \u0027Presidential_Speeches\u0027\nspeeches_dir \u003d os.listdir(folder_root)\n\nfor d in speeches_dir:\n    pres_speeches \u003d folder_root + \u0027/\u0027 + d\n    speech_files \u003d os.listdir(pres_speeches)\n    speech_files.sort()\n    counter \u003d 0\n    for speech_file in speech_files:\n        speech_path \u003d pres_speeches + \u0027/\u0027 + speech_file\n        # line 1 is title\n        parse_ps(speech_path, d, counter)\n        counter \u003d counter + 1\n        \n        \n            \nprint(\"Raw Data Loaded Into Database\")",
       "user": "anonymous",
-      "dateUpdated": "2020-10-25 09:16:24.196",
+      "dateUpdated": "2020-10-25 10:21:03.820",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -334,14 +414,14 @@
       "jobName": "paragraph_1603560171012_1062272639",
       "id": "paragraph_1603560171012_1062272639",
       "dateCreated": "2020-10-24 17:22:51.012",
-      "dateStarted": "2020-10-25 09:16:24.219",
-      "dateFinished": "2020-10-25 09:16:29.197",
+      "dateStarted": "2020-10-25 10:21:03.828",
+      "dateFinished": "2020-10-25 10:21:12.184",
       "status": "FINISHED"
     },
     {
-      "text": "%cassandra\nSELECT filename, speech_title FROM iwords.raw WHERE text\u003d\u0027{\"query\": {\"query_string\": {\"query\": \"Let me begin by saying thanks to all you who\u0027\u0027ve traveled, from far and wide, to brave the cold today.\"}}}\u0027 ALLOW FILTERING;",
+      "text": "%md\nsearch speeches to see if our data of interest is included",
       "user": "anonymous",
-      "dateUpdated": "2020-10-25 09:25:39.203",
+      "dateUpdated": "2020-10-25 11:05:44.998",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -358,12 +438,39 @@
         "params": {},
         "forms": {}
       },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603623924440_1884290820",
+      "id": "paragraph_1603623924440_1884290820",
+      "dateCreated": "2020-10-25 11:05:24.516",
+      "status": "READY"
+    },
+    {
+      "text": "%sh\ncurl -X GET \"http://172.29.0.2:9200/iwords/raw/_search?pretty\" -H \u0027Content-Type: application/json\u0027 -d \u0027{\"query\":{\"regexp\":{\"text\": \"Let me begin by saying thank.*\"}}}\u0027\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 14:07:05.868",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
       "results": {
         "code": "SUCCESS",
         "msg": [
           {
-            "type": "HTML",
-            "data": "\n\n\u003cdiv class\u003d\"container\"\u003e\n\u003cdiv class\u003d\"row text-center\"\u003e\n\u003ch4\u003eNo Result\u003c/h4\u003e\n\u003c/div\u003e\n\u003cbr/\u003e\n    \u003cdiv class\u003d\"row\"\u003e\n    \u003cdiv class\u003d\"col-md-3\"\u003e\u003c/div\u003e\n    \u003cdiv class\u003d\"col-md-6 col-offset-md-3 table-responsive table-bordered\"\u003e\n        \u003ctable class\u003d\"table\"\u003e\n            \u003ccaption\u003e\u003ch5\u003eLast query execution info\u003c/h5\u003e\u003c/caption\u003e\n            \u003cthead\u003e\n                \u003ctr\u003e\n                    \u003cth\u003eInfo\u003c/th\u003e\n                    \u003cth\u003eValue\u003c/th\u003e\n                \u003c/tr\u003e\n            \u003c/thead\u003e\n            \u003ctbody\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eStatement\u003c/td\u003e\n                    \u003ctd\u003eSELECT filename, speech_title FROM iwords.raw WHERE text\u003d\u0027{\u0026quot;query\u0026quot;: {\u0026quot;query_string\u0026quot;: {\u0026quot;query\u0026quot;: \u0026quot;Let me begin by saying thanks to all you who\u0027\u0027ve traveled, from far and wide, to brave the cold today.\u0026quot;}}}\u0027 ALLOW FILTERING;\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eAchieved Consistency\u003c/td\u003e\n                    \u003ctd\u003eN/A\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eTried Hosts\u003c/td\u003e\n                    \u003ctd\u003e172.29.0.2:9042\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eQueried Hosts\u003c/td\u003e\n                    \u003ctd\u003e172.29.0.2:9042\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eSchema In Agreement\u003c/td\u003e\n                    \u003ctd\u003etrue\u003c/td\u003e\n                \u003c/tr\u003e\n            \u003c/tbody\u003e\n        \u003c/table\u003e\n    \u003c/div\u003e\n    \u003c/div\u003e\n\u003c/div\u003e"
+            "type": "TEXT",
+            "data": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100   459  100   213  100   246   1589   1835 --:--:-- --:--:-- --:--:--  3451\n{\n  \"took\" : 77,\n  \"timed_out\" : false,\n  \"_shards\" : {\n    \"total\" : 1,\n    \"successful\" : 1,\n    \"skipped\" : 0,\n    \"failed\" : 0\n  },\n  \"hits\" : {\n    \"total\" : 0,\n    \"max_score\" : null,\n    \"hits\" : [ ]\n  }\n}\n"
           }
         ]
       },
@@ -372,128 +479,41 @@
       "jobName": "paragraph_1603617614686_-1449690360",
       "id": "paragraph_1603617614686_-1449690360",
       "dateCreated": "2020-10-25 09:20:14.686",
-      "dateStarted": "2020-10-25 09:25:39.208",
-      "dateFinished": "2020-10-25 09:25:39.397",
+      "dateStarted": "2020-10-25 14:06:50.243",
+      "dateFinished": "2020-10-25 14:06:50.407",
       "status": "FINISHED"
     },
     {
-      "text": "%python\n(\"test\" !\u003d \u0027\u0027) \u0026 (\"test\".strip() !\u003d \u0027\u0027)",
+      "text": "%md\npre-presidential speeches",
       "user": "anonymous",
-      "dateUpdated": "2020-10-25 09:10:08.481",
+      "dateUpdated": "2020-10-25 14:14:23.052",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "python",
+          "language": "text",
           "editOnDblClick": false,
           "completionSupport": true
         },
-        "editorMode": "ace/mode/python"
+        "editorMode": "ace/mode/text"
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "True"
-          }
-        ]
-      },
       "apps": [],
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1603561392178_156716254",
-      "id": "paragraph_1603561392178_156716254",
-      "dateCreated": "2020-10-24 17:43:12.178",
-      "dateStarted": "2020-10-25 09:10:08.485",
-      "dateFinished": "2020-10-25 09:10:08.543",
-      "status": "FINISHED"
+      "jobName": "paragraph_1603635236907_-1106625224",
+      "id": "paragraph_1603635236907_-1106625224",
+      "dateCreated": "2020-10-25 14:13:56.907",
+      "status": "READY"
     },
     {
-      "text": "%python\nfolder_root \u003d \u0027Presidential_Speeches\u0027\nspeeches_dir \u003d os.listdir(folder_root)\n\nspeeches_dir",
+      "text": "%python\nsoi_dts \u003d [pendulum.parse(\"2007-02-10\"),pendulum.parse(\"2008-08-29\"),pendulum.parse(\"2006-06-14\"),pendulum.parse(\"2006-08-28\"),pendulum.parse(\"2006-11-20\"),pendulum.parse(\"2005-11-01\")]\ndoi_titles \u003d [\"Official Announcement of Candidacy for US President\",\"Acceptance Speech\",\"Remarks on Taking Back America\",\"Recollections of his father, while visiting Kenya\",\"Plan for Iraq War\",\"Non-Proliferation and Russia: The Challenges Ahead\"]\n\n",
       "user": "anonymous",
-      "dateUpdated": "2020-10-24 16:44:40.520",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "[\u0027arthur\u0027,\n \u0027hoover\u0027,\n \u0027ford\u0027,\n \u0027nixon\u0027,\n \u0027johnson\u0027,\n \u0027gwbush\u0027,\n \u0027bharrison\u0027,\n \u0027vanburen\u0027,\n \u0027polk\u0027,\n \u0027reagan\u0027,\n \u0027fillmore\u0027,\n \u0027buchanan\u0027,\n \u0027fdroosevelt\u0027,\n \u0027roosevelt\u0027,\n \u0027jefferson\u0027,\n \u0027garfield\u0027,\n \u0027kennedy\u0027,\n \u0027washington\u0027,\n \u0027wilson\u0027,\n \u0027tyler\u0027,\n \u0027harding\u0027,\n \u0027taylor\u0027,\n \u0027eisenhower\u0027,\n \u0027monroe\u0027,\n \u0027obama\u0027,\n \u0027madison\u0027,\n \u0027truman\u0027,\n \u0027grant\u0027,\n \u0027jackson\u0027,\n \u0027taft\u0027,\n \u0027harrison\u0027,\n \u0027adams\u0027,\n \u0027hayes\u0027,\n \u0027mckinley\u0027,\n \u0027lbjohnson\u0027,\n \u0027coolidge\u0027,\n \u0027pierce\u0027,\n \u0027bush\u0027,\n \u0027carter\u0027,\n \u0027clinton\u0027,\n \u0027lincoln\u0027,\n \u0027jqadams\u0027,\n \u0027cleveland\u0027]"
-          }
-        ]
-      },
-      "apps": [],
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1603527599071_-1216617475",
-      "id": "paragraph_1603527599071_-1216617475",
-      "dateCreated": "2020-10-24 08:19:59.071",
-      "dateStarted": "2020-10-24 16:41:57.214",
-      "dateFinished": "2020-10-24 16:41:57.288",
-      "status": "FINISHED"
-    },
-    {
-      "text": "%python\nd \u003d speeches_dir[0]\npres_speeches \u003d folder_root + \u0027/\u0027 + d\nspeech_files \u003d os.listdir(pres_speeches)\nspeech_files.sort()\ncounter \u003d 0\nspeech_file \u003d speech_files[0]\nspeech_path \u003d pres_speeches + \u0027/\u0027 + speech_file\n# line 1 is title\nspeech_path",
-      "user": "anonymous",
-      "dateUpdated": "2020-10-24 17:47:14.598",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "\u0027Presidential_Speeches/arthur/arthur_speeches_000.txt\u0027"
-          }
-        ]
-      },
-      "apps": [],
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1603527616442_1811780996",
-      "id": "paragraph_1603527616442_1811780996",
-      "dateCreated": "2020-10-24 08:20:16.442",
-      "dateStarted": "2020-10-24 16:43:05.991",
-      "dateFinished": "2020-10-24 16:43:06.053",
-      "status": "FINISHED"
-    },
-    {
-      "text": "%python\ndef date_check(dt_txt):\n    if dt_txt \u003d\u003d \u0027\u0027:\n        return(None)\n    else:\n        parsed_dt \u003d pendulum.parse(dt_txt, strict\u003dFalse)\n        return(parsed_dt)",
-      "user": "anonymous",
-      "dateUpdated": "2020-10-24 16:45:12.764",
+      "dateUpdated": "2020-10-25 14:13:53.976",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -516,17 +536,77 @@
       },
       "apps": [],
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1603557785990_-554773735",
-      "id": "paragraph_1603557785990_-554773735",
-      "dateCreated": "2020-10-24 16:43:05.990",
-      "dateStarted": "2020-10-24 16:45:12.769",
-      "dateFinished": "2020-10-24 16:45:12.828",
+      "jobName": "paragraph_1603634485695_-1983491456",
+      "id": "paragraph_1603634485695_-1983491456",
+      "dateCreated": "2020-10-25 14:01:25.695",
+      "dateStarted": "2020-10-25 14:13:53.980",
+      "dateFinished": "2020-10-25 14:13:54.035",
       "status": "FINISHED"
     },
     {
-      "text": "%python\nfilename \u003d speech_path\nfobj \u003d open(filename, \u0027r\u0027, encoding\u003d\u0027ISO-8859-1\u0027)\nraw_title \u003d fobj.readline()\nparsed_title \u003d raw_title.strip().replace(\u0027\u003ctitle\u003d\u0027,\u0027\u0027).replace(\u0027\u003e\u0027,\u0027\u0027).replace(\u0027\"\u0027,\u0027\u0027)\nraw_date \u003d fobj.readline()\nparsed_date_txt \u003d raw_date.strip().replace(\u0027\u003cdate\u003d\u0027,\u0027\u0027).replace(\u0027\u003e\u0027,\u0027\u0027).replace(\u0027\"\u0027,\u0027\u0027)\nparsed_date \u003d date_check(parsed_date_txt)\nprint(filename)\nprint(parsed_title)\nprint(parsed_date)",
+      "text": "%md\nclose but no cigar, looks like these come from candidancy speeches, not presidential speeches. Let\u0027s press on in any case.\n\nstart tokenization",
       "user": "anonymous",
-      "dateUpdated": "2020-10-24 16:46:22.458",
+      "dateUpdated": "2020-10-25 11:11:05.427",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603623945097_2047250091",
+      "id": "paragraph_1603623945097_2047250091",
+      "dateCreated": "2020-10-25 11:05:45.097",
+      "status": "READY"
+    },
+    {
+      "text": "%python\nfile_nms_rows \u003d session.execute(\"SELECT filename FROM iwords.raw\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 11:25:16.029",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603561392178_156716254",
+      "id": "paragraph_1603561392178_156716254",
+      "dateCreated": "2020-10-24 17:43:12.178",
+      "dateStarted": "2020-10-25 11:25:16.037",
+      "dateFinished": "2020-10-25 11:25:16.094",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%python\nfile_nms0 \u003d []\nfor row in file_nms_rows:\n    file_nms0.append(row.filename)\n    \n\nfile_nms \u003d np.unique(np.array(file_nms0))\nfile_nms[0]",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 11:25:17.986",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -548,7 +628,192 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Presidential_Speeches/arthur/arthur_speeches_000.txt\nVeto of the Chinese Exclusion Act\n1882-04-04T00:00:00+00:00\n"
+            "data": "\u0027Presidential_Speeches/bush/bush_speeches_000.txt\u0027"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603527599071_-1216617475",
+      "id": "paragraph_1603527599071_-1216617475",
+      "dateCreated": "2020-10-24 08:19:59.071",
+      "dateStarted": "2020-10-25 11:25:17.989",
+      "dateFinished": "2020-10-25 11:25:18.047",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%python\nfnm \u003d file_nms[0]\nrow_max \u003d session.execute(\"\"\"SELECT max(doc_num) FROM iwords.raw WHERE filename \u003d \u0027{}\u0027\"\"\".format(fnm))\ndoc_num_max \u003d row_max.one().system_max_doc_num\ndoc_num_max\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 11:26:55.066",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603624686136_1618816412",
+      "id": "paragraph_1603624686136_1618816412",
+      "dateCreated": "2020-10-25 11:18:06.136",
+      "dateStarted": "2020-10-25 11:26:55.078",
+      "dateFinished": "2020-10-25 11:26:55.137",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%python\niters \u003d list(range(0, doc_num_max + 1))\niter \u003d iters[0]\ntmp_sub \u003d session.execute(\"\"\"SELECT * FROM iwords.raw WHERE filename \u003d \u0027{}\u0027 AND doc_num \u003d {} ALLOW FILTERING;\"\"\".format(fnm, iter))\ntmp_sub",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 11:31:23.365",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003ccassandra.cluster.ResultSet at 0x7f840d21a978\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603625217763_1512989519",
+      "id": "paragraph_1603625217763_1512989519",
+      "dateCreated": "2020-10-25 11:26:57.763",
+      "dateStarted": "2020-10-25 11:31:23.369",
+      "dateFinished": "2020-10-25 11:31:23.486",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%python\ndata \u003d []\nfor row in tmp_sub:\n    tmp \u003d {\n        \u0027filename\u0027: row.filename,\n        \u0027line_num\u0027: row.line_num,\n        \u0027doc_num\u0027: row.doc_num,\n        \u0027pres\u0027: row.pres,\n        \u0027speech_title\u0027: row.speech_title,\n        \u0027speech_dt\u0027: row.speech_dt,\n        \u0027text\u0027: row.text \n    }\n    data.append(tmp)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 11:37:51.321",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603527616442_1811780996",
+      "id": "paragraph_1603527616442_1811780996",
+      "dateCreated": "2020-10-24 08:20:16.442",
+      "dateStarted": "2020-10-25 11:37:51.373",
+      "dateFinished": "2020-10-25 11:37:51.430",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%python\ndf0 \u003d pd.DataFrame(data)\ndf0.head()",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 11:40:08.472",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv\u003e\n\u003cstyle scoped\u003e\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n\u003c/style\u003e\n\u003ctable border\u003d\"1\" class\u003d\"dataframe\"\u003e\n  \u003cthead\u003e\n    \u003ctr style\u003d\"text-align: right;\"\u003e\n      \u003cth\u003e\u003c/th\u003e\n      \u003cth\u003efilename\u003c/th\u003e\n      \u003cth\u003eline_num\u003c/th\u003e\n      \u003cth\u003edoc_num\u003c/th\u003e\n      \u003cth\u003epres\u003c/th\u003e\n      \u003cth\u003espeech_title\u003c/th\u003e\n      \u003cth\u003espeech_dt\u003c/th\u003e\n      \u003cth\u003etext\u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003cth\u003e0\u003c/th\u003e\n      \u003ctd\u003ePresidential_Speeches/bush/bush_speeches_000.txt\u003c/td\u003e\n      \u003ctd\u003e0\u003c/td\u003e\n      \u003ctd\u003e0\u003c/td\u003e\n      \u003ctd\u003ebush\u003c/td\u003e\n      \u003ctd\u003eDebate with Michael Dukakis\u003c/td\u003e\n      \u003ctd\u003e1988-09-25\u003c/td\u003e\n      \u003ctd\u003e\u0026lt;LEHRER: Good evening. On behalf of the Commis...\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003cth\u003e1\u003c/th\u003e\n      \u003ctd\u003ePresidential_Speeches/bush/bush_speeches_000.txt\u003c/td\u003e\n      \u003ctd\u003e1\u003c/td\u003e\n      \u003ctd\u003e0\u003c/td\u003e\n      \u003ctd\u003ebush\u003c/td\u003e\n      \u003ctd\u003eDebate with Michael Dukakis\u003c/td\u003e\n      \u003ctd\u003e1988-09-25\u003c/td\u003e\n      \u003ctd\u003e\u0026lt;LEHRER: Our questions this evening will be ab...\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003cth\u003e2\u003c/th\u003e\n      \u003ctd\u003ePresidential_Speeches/bush/bush_speeches_000.txt\u003c/td\u003e\n      \u003ctd\u003e2\u003c/td\u003e\n      \u003ctd\u003e0\u003c/td\u003e\n      \u003ctd\u003ebush\u003c/td\u003e\n      \u003ctd\u003eDebate with Michael Dukakis\u003c/td\u003e\n      \u003ctd\u003e1988-09-25\u003c/td\u003e\n      \u003ctd\u003e\u0026lt;BUSH:\u0026gt; I think we\u0027ve seen a deterioration of ...\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003cth\u003e3\u003c/th\u003e\n      \u003ctd\u003ePresidential_Speeches/bush/bush_speeches_000.txt\u003c/td\u003e\n      \u003ctd\u003e3\u003c/td\u003e\n      \u003ctd\u003e0\u003c/td\u003e\n      \u003ctd\u003ebush\u003c/td\u003e\n      \u003ctd\u003eDebate with Michael Dukakis\u003c/td\u003e\n      \u003ctd\u003e1988-09-25\u003c/td\u003e\n      \u003ctd\u003e\u0026lt;LEHRER: Governor, you have one minute to resp...\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003cth\u003e4\u003c/th\u003e\n      \u003ctd\u003ePresidential_Speeches/bush/bush_speeches_000.txt\u003c/td\u003e\n      \u003ctd\u003e4\u003c/td\u003e\n      \u003ctd\u003e0\u003c/td\u003e\n      \u003ctd\u003ebush\u003c/td\u003e\n      \u003ctd\u003eDebate with Michael Dukakis\u003c/td\u003e\n      \u003ctd\u003e1988-09-25\u003c/td\u003e\n      \u003ctd\u003e\u0026lt;DUKAKIS: I agree with Mr. Bush that values ar...\u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603557785990_-554773735",
+      "id": "paragraph_1603557785990_-554773735",
+      "dateCreated": "2020-10-24 16:43:05.990",
+      "dateStarted": "2020-10-25 11:40:08.477",
+      "dateFinished": "2020-10-25 11:40:08.558",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%python\nfrom nltk import regexp_tokenize\nfrom nltk.stem import PorterStemmer\nfrom nltk.corpus import stopwords\nsw_en \u003d stopwords.words(\u0027english\u0027)\nstemming \u003d PorterStemmer()\npattern \u003d \"\\w+\"\n#\\w+(?:\u0027\\w+)?|[^\\w\\s]\n#arr \u003d nltk.word_tokenize(df0[\"text\"][0])\n#list(map(lambda x: nltk.pos_tag(x, tagset\u003d\u0027universal\u0027, lang\u003d\u0027eng\u0027), arr))\narr0 \u003d regexp_tokenize(df0[\"text\"][0], pattern)\narr1 \u003d map(lambda x: stemming.stem(x), str_arr)\narr2 \u003d [word for word in arr1 if word not in sw_en]\npos0 \u003d nltk.pos_tag(arr2, tagset\u003d\u0027universal\u0027, lang\u003d\u0027eng\u0027)\npos0[0][0]",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 12:34:02.900",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u0027lehrer\u0027"
           }
         ]
       },
@@ -557,8 +822,8 @@
       "jobName": "paragraph_1603557912768_2105291587",
       "id": "paragraph_1603557912768_2105291587",
       "dateCreated": "2020-10-24 16:45:12.769",
-      "dateStarted": "2020-10-24 16:46:22.462",
-      "dateFinished": "2020-10-24 16:46:22.528",
+      "dateStarted": "2020-10-25 12:34:02.903",
+      "dateFinished": "2020-10-25 12:34:02.959",
       "status": "FINISHED"
     },
     {
@@ -674,6 +939,22 @@
       "dateStarted": "2020-10-24 22:24:41.521",
       "dateFinished": "2020-10-24 22:24:42.604",
       "status": "FINISHED"
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-25 12:19:38.025",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1603628378025_-1113619606",
+      "id": "paragraph_1603628378025_-1113619606",
+      "dateCreated": "2020-10-25 12:19:38.025",
+      "status": "READY"
     },
     {
       "text": "%python\nrow \u003d session.execute(\"SELECT * FROM raw;\")\nrow.one()",
