@@ -4,6 +4,8 @@ An NLP Project looking at presidential speeches to identify interesting words fr
 ## Preparation
 Please make sure docker and docker compose are installed. Bring up the terminal in the project location.
 
+I have set this up in an apache zeppelin. For those unfamiliar, it is very similar to jupyter but has some extra functionality/configuartions that are helpful.
+
 
 Once installed, run the folling commands in your terminal:
 1. To run the server:
