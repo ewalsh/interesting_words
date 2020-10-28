@@ -1,0 +1,14 @@
+ZEPPELIN_CLASSPATH: ::/opt/zeppelin-0.9.0-preview1-bin-all/lib/*:/opt/zeppelin-0.9.0-preview1-bin-all/*::/opt/zeppelin-0.9.0-preview1-bin-all/conf
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+ZEPPELIN_CLASSPATH: ::/opt/zeppelin-0.9.0-preview1-bin-all/lib/*:/opt/zeppelin-0.9.0-preview1-bin-all/*::/opt/zeppelin-0.9.0-preview1-bin-all/conf
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+ WARN [2020-10-28 14:45:34,638] ({main} ZeppelinConfiguration.java[create]:159) - Failed to load configuration, proceeding with a default
+ INFO [2020-10-28 14:45:34,737] ({main} ZeppelinConfiguration.java[create]:171) - Server Host: 172.29.0.6
+ INFO [2020-10-28 14:45:34,740] ({main} ZeppelinConfiguration.java[create]:173) - Server Port: 8080
+ INFO [2020-10-28 14:45:34,742] ({main} ZeppelinConfiguration.java[create]:177) - Context Path: /
+ INFO [2020-10-28 14:45:34,743] ({main} ZeppelinConfiguration.java[create]:178) - Zeppelin Version: 0.9.0-preview1
+ INFO [2020-10-28 14:45:34,772] ({main} Log.java[initialized]:193) - Logging initialized @923ms to org.eclipse.jetty.util.log.Slf4jLog
+ WARN [2020-10-28 14:45:35,494] ({main} ZeppelinConfiguration.java[getConfigFSDir]:631) - zeppelin.config.fs.dir is not specified, fall back to local conf directory zeppelin.conf.dir
+ INFO [2020-10-28 14:45:35,560] ({main} Credentials.java[loadFromFile]:121) - /opt/zeppelin-0.9.0-preview1-bin-all/conf/credentials.json
+ INFO [2020-10-28 14:45:35,616] ({ImmediateThread-1603896335485} PluginManager.java[loadNotebookRepo]:60) - Loading NotebookRepo Plugin: org.apache.zeppelin.notebook.repo.GitNotebookRepo
+ INFO [2020-10-28 14:45:36,044] ({ImmediateThread-1603896335485} VFSNotebookRepo.java[setNotebookDirectory]:70) - Using notebookDir: /opt/zeppelin-0.9.0-preview1-bin-all/notebook
