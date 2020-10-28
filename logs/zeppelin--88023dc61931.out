@@ -1,0 +1,8 @@
+ZEPPELIN_CLASSPATH: ::/opt/zeppelin-0.9.0-preview1-bin-all/lib/*:/opt/zeppelin-0.9.0-preview1-bin-all/*::/opt/zeppelin-0.9.0-preview1-bin-all/conf
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+ WARN [2020-10-28 14:23:05,901] ({main} ZeppelinConfiguration.java[create]:159) - Failed to load configuration, proceeding with a default
+ INFO [2020-10-28 14:23:06,097] ({main} ZeppelinConfiguration.java[create]:171) - Server Host: 172.29.0.6
+ INFO [2020-10-28 14:23:06,122] ({main} ZeppelinConfiguration.java[create]:173) - Server Port: 8080
+ INFO [2020-10-28 14:23:06,127] ({main} ZeppelinConfiguration.java[create]:177) - Context Path: /
+ INFO [2020-10-28 14:23:06,127] ({main} ZeppelinConfiguration.java[create]:178) - Zeppelin Version: 0.9.0-preview1
+ INFO [2020-10-28 14:23:06,213] ({main} Log.java[initialized]:193) - Logging initialized @1818ms to org.eclipse.jetty.util.log.Slf4jLog
