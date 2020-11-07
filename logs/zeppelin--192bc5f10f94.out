@@ -1,0 +1,36 @@
+ZEPPELIN_CLASSPATH: ::/opt/zeppelin-0.9.0-preview1-bin-all/lib/*:/opt/zeppelin-0.9.0-preview1-bin-all/*::/opt/zeppelin-0.9.0-preview1-bin-all/conf
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+ WARN [2020-10-28 15:35:48,338] ({main} ZeppelinConfiguration.java[create]:159) - Failed to load configuration, proceeding with a default
+ INFO [2020-10-28 15:35:48,710] ({main} ZeppelinConfiguration.java[create]:171) - Server Host: 172.29.0.6
+ INFO [2020-10-28 15:35:48,720] ({main} ZeppelinConfiguration.java[create]:173) - Server Port: 8080
+ INFO [2020-10-28 15:35:48,721] ({main} ZeppelinConfiguration.java[create]:177) - Context Path: /
+ INFO [2020-10-28 15:35:48,724] ({main} ZeppelinConfiguration.java[create]:178) - Zeppelin Version: 0.9.0-preview1
+ INFO [2020-10-28 15:35:48,866] ({main} Log.java[initialized]:193) - Logging initialized @3921ms to org.eclipse.jetty.util.log.Slf4jLog
+ WARN [2020-10-28 15:35:50,752] ({main} ZeppelinConfiguration.java[getConfigFSDir]:631) - zeppelin.config.fs.dir is not specified, fall back to local conf directory zeppelin.conf.dir
+ INFO [2020-10-28 15:35:50,933] ({main} Credentials.java[loadFromFile]:121) - /opt/zeppelin-0.9.0-preview1-bin-all/conf/credentials.json
+ INFO [2020-10-28 15:35:51,260] ({ImmediateThread-1603899350720} PluginManager.java[loadNotebookRepo]:60) - Loading NotebookRepo Plugin: org.apache.zeppelin.notebook.repo.GitNotebookRepo
+ INFO [2020-10-28 15:35:52,457] ({ImmediateThread-1603899350720} VFSNotebookRepo.java[setNotebookDirectory]:70) - Using notebookDir: /opt/zeppelin-0.9.0-preview1-bin-all/notebook
+ INFO [2020-10-28 15:35:52,934] ({main} ZeppelinServer.java[setupWebAppContext]:488) - warPath is: /opt/zeppelin-0.9.0-preview1-bin-all/zeppelin-web-0.9.0-preview1.war
+ INFO [2020-10-28 15:35:53,026] ({main} ZeppelinServer.java[setupWebAppContext]:501) - ZeppelinServer Webapp path: /opt/zeppelin-0.9.0-preview1-bin-all/webapps
+ INFO [2020-10-28 15:35:53,523] ({main} ZeppelinServer.java[setupWebAppContext]:488) - warPath is: /opt/zeppelin-0.9.0-preview1-bin-all/zeppelin-web-angular-0.9.0-preview1.war
+ INFO [2020-10-28 15:35:53,531] ({main} ZeppelinServer.java[setupWebAppContext]:501) - ZeppelinServer Webapp path: /opt/zeppelin-0.9.0-preview1-bin-all/webapps/next
+ INFO [2020-10-28 15:35:53,989] ({ImmediateThread-1603899350720} GitNotebookRepo.java[init]:77) - Opening a git repo at '/opt/zeppelin-0.9.0-preview1-bin-all/notebook'
+ INFO [2020-10-28 15:35:54,173] ({main} NotebookServer.java[<init>]:153) - NotebookServer instantiated: org.apache.zeppelin.socket.NotebookServer@2898ac89
+ INFO [2020-10-28 15:35:54,241] ({main} NotebookServer.java[setNotebook]:164) - Injected NotebookProvider
+ INFO [2020-10-28 15:35:54,262] ({main} NotebookServer.java[setServiceLocator]:158) - Injected ServiceLocator: ServiceLocatorImpl(shared-locator,0,775931202)
+ INFO [2020-10-28 15:35:54,279] ({main} NotebookServer.java[setNotebookService]:171) - Injected NotebookServiceProvider
+ INFO [2020-10-28 15:35:54,293] ({main} NotebookServer.java[setAuthorizationServiceProvider]:178) - Injected NotebookAuthorizationServiceProvider
+ INFO [2020-10-28 15:35:54,314] ({main} NotebookServer.java[setConnectionManagerProvider]:184) - Injected ConnectionManagerProvider
+ INFO [2020-10-28 15:35:54,364] ({main} ZeppelinServer.java[setupClusterManagerServer]:439) - Cluster mode is disabled
+ INFO [2020-10-28 15:35:54,433] ({main} ZeppelinServer.java[main]:251) - Starting zeppelin server
+ INFO [2020-10-28 15:35:54,490] ({main} Server.java[doStart]:370) - jetty-9.4.18.v20190429; built: 2019-04-29T20:42:08.989Z; git: e1bc35120a6617ee3df052294e433f3a25ce7097; jvm 1.8.0_231-b11
+ INFO [2020-10-28 15:35:55,887] ({main} StandardDescriptorProcessor.java[visitServlet]:283) - NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+ INFO [2020-10-28 15:35:55,957] ({main} DefaultSessionIdManager.java[doStart]:365) - DefaultSessionIdManager workerName=node0
+ INFO [2020-10-28 15:35:55,970] ({main} DefaultSessionIdManager.java[doStart]:370) - No SessionScavenger set, using defaults
+ INFO [2020-10-28 15:35:55,976] ({main} HouseKeeper.java[startScavenging]:149) - node0 Scavenging every 600000ms
+ INFO [2020-10-28 15:36:04,821] ({main} ContextHandler.java[doStart]:855) - Started o.e.j.w.WebAppContext@3b69e7d1{zeppelin-web,/,jar:file:///opt/zeppelin-0.9.0-preview1-bin-all/zeppelin-web-0.9.0-preview1.war!/,AVAILABLE}{/opt/zeppelin-0.9.0-preview1-bin-all/zeppelin-web-0.9.0-preview1.war}
+ INFO [2020-10-28 15:36:05,016] ({main} StandardDescriptorProcessor.java[visitServlet]:283) - NO JSP Support for /next, did not find org.eclipse.jetty.jsp.JettyJspServlet
+ INFO [2020-10-28 15:36:06,624] ({main} ContextHandler.java[doStart]:855) - Started o.e.j.w.WebAppContext@139982de{zeppelin-web-angular,/next,jar:file:///opt/zeppelin-0.9.0-preview1-bin-all/zeppelin-web-angular-0.9.0-preview1.war!/,AVAILABLE}{/opt/zeppelin-0.9.0-preview1-bin-all/zeppelin-web-angular-0.9.0-preview1.war}
+ INFO [2020-10-28 15:36:06,766] ({main} AbstractConnector.java[doStart]:292) - Started ServerConnector@646d64ab{HTTP/1.1,[http/1.1]}{172.29.0.6:8080}
+ INFO [2020-10-28 15:36:06,779] ({main} Server.java[doStart]:410) - Started @21857ms
+ INFO [2020-10-28 15:36:11,795] ({main} ZeppelinServer.java[main]:265) - Done, zeppelin server started
